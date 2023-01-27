@@ -1,10 +1,11 @@
-export NVM_NO_USE=true
-export NVM_AUTO_USE=true      # Auto-set Node version based on .nvmrc files
-
 # Load environment variables from root .env file
 if [ -f "$HOME/.env" ]; then
     export $(echo $(cat $HOME/.env | sed 's/#.*//g'| xargs) | envsubst)
 fi
+
+export NVM_DIR="$XDG_STATE_HOME/nvm"
+export NVM_NO_USE=true
+export NVM_AUTO_USE=true      # Auto-set Node version based on .nvmrc files
 
 # ZPLUG_HOME based on Homebrew install
 export ZPLUG_HOME=/usr/local/opt/zplug
