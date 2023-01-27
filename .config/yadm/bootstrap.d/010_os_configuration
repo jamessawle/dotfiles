@@ -20,4 +20,13 @@ if [ $system_type = "Darwin" ]; then
   # Configure iTerm2 to use configuration from .config
   defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$XDG_CONFIG_HOME/iterm2"
   defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
+
+  # Setup 1Password CLI SSH auth sock to be attached on all applications start
+  # This allows for all applications to use SSH tokens stored in 1Password
+  # If you make changes to config, you have to run unload command before re-running
+  if [ ! -f ~/Library/LaunchAgents/com.1password.SSH_AUTH_SOCK.plist ]; then
+    echo "Add 1Password SSH AUTH SOCK launch configuration"
+    sudo cp "$XDG_CONFIG_HOME/yadm/resources/com.1password.SSH_AUTH_SOCK.plist" ~/Library/LaunchAgents/com.1password.SSH_AUTH_SOCK.plist
+    launchctl load -w ~/Library/LaunchAgents/com.1password.SSH_AUTH_SOCK.plist
+  fi
 fi
