@@ -8,11 +8,10 @@ print_color() {
 # Directory to look for bootstrap executables in
 BOOTSTRAP_D="${BASH_SOURCE[0]}.d"
 
-print_color "32" "Setting up machine with yadm bootstrap scripts"
+print_color "32" "STARTING SYSTEM BOOTSTRAPPING\n"
 
 if [ -f "$HOME/.zshenv" ]; then
     print_color "32" "Loading environment variables from $HOME/.zshenv"
-    # export "$(grep -vE "^(#.*|\s*)$" ~/.zshenv)"
     export $(echo $(cat $HOME/.zshenv | sed 's/#.*//g'| xargs) | envsubst)
 fi
 
@@ -21,6 +20,7 @@ if [[ ! -d "$BOOTSTRAP_D" ]]; then
     exit 1
 fi
 
+print_color "32" "\nRunning bootstrapping scripts"
 find "$BOOTSTRAP_D" -type f | sort | while IFS= read -r bootstrap; do
     if [[ -x "$bootstrap" && ! "$bootstrap" =~ "##" && ! "$bootstrap" =~ "~$" ]]; then
         if ! "$bootstrap"; then
@@ -30,5 +30,19 @@ find "$BOOTSTRAP_D" -type f | sort | while IFS= read -r bootstrap; do
     fi
 done
 
+if [[ -d $XDG_CONFIG_HOME/custom/bootstrap ]]; then
+    print_color "32" "\nRunning custom bootstrapping scripts"
+    find "$XDG_CONFIG_HOME/custom/bootstrap" -type f | sort | while IFS= read -r bootstrap; do
+        if [[ -x "$bootstrap" && ! "$bootstrap" =~ "##" && ! "$bootstrap" =~ "~$" ]]; then
+            if ! "$bootstrap"; then
+                echo "Error: custom bootstrap '$bootstrap' failed" >&2
+                exit 1
+            fi
+        fi
+    done
+else
+    print_color "32" "\nNo custom bootstrapping scripts to run"
+fi
+
 # Finished bootstrapping with yadm
-print_color "32" "yadm bootstrapping complete"
+print_color "32" "\nSYSTEM BOOTSTRAPPING COMPLETE"

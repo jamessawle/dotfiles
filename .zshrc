@@ -17,8 +17,8 @@ fi
 zplug load
 
 source $XDG_CONFIG_HOME/zsh/alias.zsh
-if [ $HOME/.alias.local ]; then
-  source $HOME/.alias.local
+if [ -f $XDG_CONFIG_HOME/custom/alias.zsh ]; then
+  source $XDG_CONFIG_HOME/custom/alias.zsh
 fi
 
 eval "$(op completion zsh)"; compdef _op op

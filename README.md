@@ -31,3 +31,13 @@ Commands only installed on MacOS
 - `brewfileCreate` - Create Brewfile in `$XDG_DATA_HOME/homebrew` 
 - `bbi` - Install dependencies using `brew bundle`
 - `bbc` - Cleanup brew install to only include things defined in either `$XDG_CONFIG_HOME/homebrew/Brewfile` or `$HOME/Brewfile`
+
+## Customisation
+
+The setup can be customised by adding any parts of the following folder structure to `$XDG_CONFIG_HOME/custom`.
+
+```
+    alias.zsh           - Extra aliases
+    bootstrap
+        fileToProcess   - Files to process to customise the system, run in alphabetical order
+```
