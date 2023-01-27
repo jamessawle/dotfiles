@@ -9,8 +9,8 @@ function createBrewfile() {
         mkdir "$XDG_DATA_HOME/homebrew"
     fi
 
-    if [ -f "$HOME/Brewfile" ]; then
-        cat "$XDG_CONFIG_HOME/homebrew/Brewfile" $HOME/Brewfile  > "$XDG_DATA_HOME/homebrew/Brewfile"
+    if [ -f "$XDG_CONFIG_HOME/custom/Brewfile" ]; then
+        cat "$XDG_CONFIG_HOME/homebrew/Brewfile" "$XDG_CONFIG_HOME/custom/Brewfile"  > "$XDG_DATA_HOME/homebrew/Brewfile"
     else
         cp "$XDG_CONFIG_HOME/homebrew/Brewfile" "$XDG_DATA_HOME/homebrew/Brewfile"
     fi
@@ -21,5 +21,5 @@ function bbi() {
 }
 
 function bbc() {
-   brew bundle --file "$XDG_DATA_HOME/homebrew/Brewfile" cleanup --force 
+    brew bundle --file "$XDG_DATA_HOME/homebrew/Brewfile" cleanup --force 
 }
