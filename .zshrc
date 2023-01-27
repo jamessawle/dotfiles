@@ -1,14 +1,6 @@
-# Load environment variables from root .env file
-if [ -f "$HOME/.env" ]; then
-    export $(echo $(cat $HOME/.env | sed 's/#.*//g'| xargs) | envsubst)
-fi
+# Where to output zsh history file
+HISTFILE="$XDG_STATE_HOME/zsh/history"
 
-export NVM_DIR="$XDG_STATE_HOME/nvm"
-export NVM_NO_USE=true
-export NVM_AUTO_USE=true      # Auto-set Node version based on .nvmrc files
-
-# ZPLUG_HOME based on Homebrew install
-export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
 # ZPlug plugins

@@ -6,16 +6,6 @@ This is the successor to my [previous attempt](https://github.com/jamessawle/dev
 
 ## Installation Steps
 
-### Prerequisites
-
-1. Set XDG Directory environment variables. Recommended approach is to set the following in `$HOME/.env`.
-
-```sh
-XDG_CONFIG_HOME=$HOME/.config
-XDG_DATA_HOME=$HOME/.local/share
-XDG_STATE_HOME=$HOME/.local/state
-```
-
 ### Mac OS pre-requisite setup
 
 * Install [Homebrew](https://brew.sh/)
