@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Setup OS specific configuration
+
+echo "Setting OS specific configuration"
+
+system_type=$(uname -s)
+
+if [ $system_type = "Darwin" ]; then
+  # Configure dock
+  defaults write com.apple.dock autohide -bool true
+  defaults write com.apple.dock "autohide-time-modifier" -float "1.5" 
+  defaults write com.apple.dock "autohide-delay" -float "0"
+  killall Dock
+
+  # Empty bin items after 30 days
+  defaults write com.apple.finder "FXRemoveOldTrashItems" -bool "true"
+  killall Finder
+fi

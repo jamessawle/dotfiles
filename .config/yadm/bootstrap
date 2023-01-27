@@ -1,0 +1,34 @@
+#!/bin/bash
+set -eu
+
+print_color() {
+    printf "\e[%bm%b\e[0m\n" "$1" "$2"
+}
+
+# Directory to look for bootstrap executables in
+BOOTSTRAP_D="${BASH_SOURCE[0]}.d"
+
+print_color "32" "Setting up machine with yadm bootstrap scripts"
+
+if [ -f "$HOME/.env" ]; then
+    print_color "32" "Loading environment variables from $HOME/.env"
+    # export "$(grep -vE "^(#.*|\s*)$" ~/.env)"
+    export $(echo $(cat $HOME/.env | sed 's/#.*//g'| xargs) | envsubst)
+fi
+
+if [[ ! -d "$BOOTSTRAP_D" ]]; then
+    echo "Error: bootstrap directory '$BOOTSTRAP_D' not found" >&2
+    exit 1
+fi
+
+find "$BOOTSTRAP_D" -type f | sort | while IFS= read -r bootstrap; do
+    if [[ -x "$bootstrap" && ! "$bootstrap" =~ "##" && ! "$bootstrap" =~ "~$" ]]; then
+        if ! "$bootstrap"; then
+            echo "Error: bootstrap '$bootstrap' failed" >&2
+            exit 1
+        fi
+    fi
+done
+
+# Finished bootstrapping with yadm
+print_color "32" "yadm bootstrapping complete"
