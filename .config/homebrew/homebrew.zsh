@@ -21,5 +21,5 @@ function bbi() {
 }
 
 function bbc() {
-   brew bundle --file "$XDG_DATA_HOME/Brewfile" cleanup --force 
+   brew bundle --file "$XDG_DATA_HOME/homebrew/Brewfile" cleanup --force 
 }
