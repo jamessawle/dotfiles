@@ -1,0 +1,9 @@
+[user]
+	name = James Sawle
+	email = james.sawle@gousto.co.uk
+[init]
+	defaultBranch = main
+[push]
+	autoSetupRemote = true
+[pull]
+	rebase = true

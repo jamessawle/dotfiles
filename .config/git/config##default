@@ -1,0 +1,9 @@
+[user]
+	name = James Sawle
+	email = jamessawle@hotmail.com
+[init]
+	defaultBranch = main
+[push]
+	autoSetupRemote = true
+[pull]
+	rebase = true
