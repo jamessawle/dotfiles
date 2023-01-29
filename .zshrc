@@ -1,8 +1,8 @@
 HISTFILE="$XDG_STATE_HOME/zsh/history"
 
-if [ $(uname -s)="Darwin" ]; then
+if [ $(uname -s) = "Darwin" ]; then
   source $ZPLUG_HOME/init.zsh
-elif [ $(uname -s)="Darwin" ]; then
+elif [ $(uname -s) = "Linux" ]; then
   source /usr/share/zsh/scripts/zplug/init.zsh
 fi
 
