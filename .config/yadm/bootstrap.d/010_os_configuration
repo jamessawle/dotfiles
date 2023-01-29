@@ -13,6 +13,9 @@ if [ $system_type = "Darwin" ]; then
   defaults write com.apple.dock "autohide-delay" -float "0"
   killall Dock
 
+  # Configure trackpad
+  defaults write -globalDomain com.apple.swipescrolldirection -bool false
+
   # Empty bin items after 30 days
   defaults write com.apple.finder "FXRemoveOldTrashItems" -bool "true"
   killall Finder
@@ -22,11 +25,23 @@ if [ $system_type = "Darwin" ]; then
   defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
 
   # Setup 1Password CLI SSH auth sock to be attached on all applications start
-  # This allows for all applications to use SSH tokens stored in 1Password
-  # If you make changes to config, you have to run unload command before re-running
-  if [ ! -f ~/Library/LaunchAgents/com.1password.SSH_AUTH_SOCK.plist ]; then
-    echo "Add 1Password SSH AUTH SOCK launch configuration"
-    sudo cp "$XDG_CONFIG_HOME/yadm/resources/com.1password.SSH_AUTH_SOCK.plist" ~/Library/LaunchAgents/com.1password.SSH_AUTH_SOCK.plist
-    launchctl load -w ~/Library/LaunchAgents/com.1password.SSH_AUTH_SOCK.plist
+  if [[ ! -e "$XDG_CONFIG_HOME/1password/agent.sock" ]]; then
+    if [ ! -d "$XDG_CONFIG_HOME/1password" ]; then
+      mkdir -p "$XDG_CONFIG_HOME/1password"
+    fi
+
+    ln -s ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock $XDG_CONFIG_HOME/1password/agent.sock
+  fi
+elif [ $system_type="Linux" ]; then
+  # Check if ZSH is setup as default
+  if [ ! $SHELL="zsh" ]; then
+    sudo pacman -Su zsh
+    chsh -s /bin/zsh
+  fi
+
+  # Setup /usr/local/opt for packages
+  if [ ! -d /usr/local/opt ]; then
+    sudo mkdir /usr/local/opt
+    sudo chown jsawle /usr/local/opt
   fi
 fi

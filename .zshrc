@@ -1,6 +1,10 @@
 HISTFILE="$XDG_STATE_HOME/zsh/history"
 
-source $ZPLUG_HOME/init.zsh
+if [ $(uname -s)="Darwin" ]; then
+  source $ZPLUG_HOME/init.zsh
+elif [ $(uname -s)="Darwin" ]; then
+  source /usr/share/zsh/scripts/zplug/init.zsh
+fi
 
 zplug "agkozak/zsh-z"
 zplug "marlonrichert/zsh-autocomplete"
