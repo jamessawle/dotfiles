@@ -8,6 +8,10 @@ brew "git"
 brew "yadm"
 brew "zplug"
 
+# Neovim
+brew "ripgrep"
+brew "neovim"
+
 cask "1password"
 cask "1password-cli"
 cask "discord"

@@ -32,19 +32,4 @@ if [ $system_type = "Darwin" ]; then
 
     ln -s ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock $XDG_CONFIG_HOME/1password/agent.sock
   fi
-elif [ $system_type="Linux" ]; then
-  # Ensure that the system is up-to-date
-  sudo pacman -Syu
-
-  # Check if ZSH is setup as default
-  if [ ! $SHELL="zsh" ]; then
-    sudo pacman zsh
-    chsh -s /bin/zsh
-  fi
-
-  # Setup /usr/local/opt for packages
-  if [ ! -d /usr/local/opt ]; then
-    sudo mkdir /usr/local/opt
-    sudo chown jsawle /usr/local/opt
-  fi
 fi
