@@ -24,7 +24,7 @@ if [ $system_type = "Darwin" ]; then
   defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$XDG_CONFIG_HOME/iterm2"
   defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
 
-  # Setup 1Password CLI SSH auth sock to be attached on all applications start
+  # Setup 1Password CLI SSH auth sock to be referenced when wishing to use SSH keys stored in 1Password
   if [[ ! -e "$XDG_CONFIG_HOME/1password/agent.sock" ]]; then
     if [ ! -d "$XDG_CONFIG_HOME/1password" ]; then
       mkdir -p "$XDG_CONFIG_HOME/1password"

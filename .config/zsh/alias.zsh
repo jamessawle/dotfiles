@@ -6,6 +6,13 @@
 # Update dotfiles with yadm
 alias yu="yadm pull && yadm bootstrap"
 
+############
+#  NeoVim  #
+############
+
+alias v="nvim"
+alias vd="nvim ."
+
 #########
 #  Git  #
 #########

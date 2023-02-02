@@ -1,6 +1,4 @@
-HISTFILE="$XDG_STATE_HOME/zsh/history"
-
-if [ $(uname -s) = "Darwin" ]; then
+if [ $(uname -s)="Darwin" ]; then
   source $ZPLUG_HOME/init.zsh
 fi
 
