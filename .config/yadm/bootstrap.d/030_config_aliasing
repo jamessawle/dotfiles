@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Alias config files that can not be stored with $XDG_CONFIG_HOME to their respective locations
+echo "\nAlias distributed configuration files"
+
+# VS Code
+rm ~/Library/Application\ Support/Code/User/settings.json
+ln -s $XDG_CONFIG_HOME/code/settings.json ~/Library/Application\ Support/Code/User/settings.json

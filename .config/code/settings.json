@@ -1,0 +1,12 @@
+{
+    "window.zoomLevel": 4,
+    "security.workspace.trust.banner": "always",
+    "editor.inlineSuggest.enabled": true,
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "editor.largeFileOptimizations": true,
+    "redhat.telemetry.enabled": false,
+    "openapi.securityAuditToken": "CiCvIfSVxWeEQNtbeG36CkFgtTw8dO1DsoQ2Xe0+VsUiYhIYlUYO+aQbPoWZVoZi71hKxo/L18/zpL/TGnVlaP6EX3xBDjSxaNoLlb/zRxJSAIm9Y2WrWMZ3uINtjXFnMhAc5Qk/VE7KlIGyDy7h32B4od94MkcmV1L0z9FYOjascly568AkFdzBk77Uam/wh6yKIixqWYpu0bL4GTYMYcPWPfhnsxyINB+Xli4AnLRB0DM=",
+    "editor.fontFamily": "'MesloLGS NF', Menlo, Monaco, 'Courier New', monospace"
+}
