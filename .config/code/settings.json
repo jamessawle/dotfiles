@@ -1,11 +1,18 @@
-{   
-    "editor.fontFamily": "'FiraCode Nerd Font', Monaco, 'Courier New', monospace",
-    "editor.fontLigatures": true,
-    "editor.inlineSuggest.enabled": true,
-    "editor.largeFileOptimizations": true,
-    "security.workspace.trust.banner": "always",
-    "window.zoomLevel": 4,
-    "[json]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    }
+{
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "editor.accessibilitySupport": "off",
+  "editor.fontFamily": "'FiraCode Nerd Font', Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.largeFileOptimizations": true,
+  "security.workspace.trust.banner": "always",
+  "window.zoomLevel": 4,
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  },
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.iconTheme": "catppuccin-mocha",
+  "editor.fontSize": 8
 }

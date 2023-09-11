@@ -17,9 +17,9 @@ function createBrewfile() {
 }
 
 function bbi() {
-    brew bundle --file "$XDG_DATA_HOME/homebrew/Brewfile" --no-lock
+    createBrewfile && brew bundle --file "$XDG_DATA_HOME/homebrew/Brewfile" --no-lock
 }
 
 function bbc() {
-    brew bundle --file "$XDG_DATA_HOME/homebrew/Brewfile" cleanup --force 
+    createBrewfile && brew bundle --file "$XDG_DATA_HOME/homebrew/Brewfile" cleanup --force 
 }

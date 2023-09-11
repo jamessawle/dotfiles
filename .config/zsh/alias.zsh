@@ -6,10 +6,21 @@
 # Update dotfiles with yadm
 alias yu="yadm pull && yadm bootstrap"
 
+####################
+#  File Operation  #
+####################
+# Touch file, creating intermediary folders if needed
+function mkt() {
+  if [ ! -f $1 ]; then
+    mkdir -p $(dirname $1) && touch $1;
+  else
+    echo "File already exists"
+  fi
+}
+
 ############
 #  NeoVim  #
 ############
-
 alias v="nvim"
 alias vd="nvim ."
 
