@@ -12,7 +12,7 @@ print_color "32" "STARTING SYSTEM BOOTSTRAPPING\n"
 
 if [ -f "$HOME/.zshenv" ]; then
     print_color "32" "Loading environment variables from $HOME/.zshenv"
-    export $(echo $(cat $HOME/.zshenv | sed 's/#.*//g'| xargs) | envsubst)
+   sh $HOME/.zshenv
 fi
 
 if [[ ! -d "$BOOTSTRAP_D" ]]; then
