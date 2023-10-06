@@ -25,17 +25,16 @@ fi
 
 eval "$(op completion zsh)"; compdef _op op
 
-eval "$(fnm env --use-on-cd)"
-
 path=(
-  /usr/local/opt/openjdk/bin
   $PATH
-  $BREW_PREFIX/{bin,sbin}
+  /usr/local/opt/openjdk/bin
+  $HOMEBREW_PREFIX/{bin,sbin}
   /usr/local/{bin,sbin}
   /usr/{bin,sbin}
-  ~/.fig/bin
   ~/.local/bin
   /{bin,sbin}
 )
+
+eval "$(fnm env --use-on-cd)"
 
 eval "$(starship init zsh)"

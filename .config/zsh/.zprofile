@@ -14,6 +14,14 @@ for xdgdir in XDG_{CONFIG,CACHE,DATA,STATE}_HOME XDG_RUNTIME_DIR; do
 done
 
 #
+# Setup OS specific environments
+#
+
+if [[ "$OSTYPE" == darwin* ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+#
 # Browser
 #
 
@@ -43,7 +51,7 @@ export LANG="${LANG:-en_US.UTF-8}"
 export ZSHZ_DATA=$XDG_STATE_HOME/z/z
 export ZSHZ_TILDE=1
 
-export ZPLUG_HOME=/usr/local/opt/zplug          # ZPLUG_HOME based on Homebrew install
+export ZPLUG_HOME=/opt/homebrew/opt/zplug          # ZPLUG_HOME based on Homebrew install
 
 export STARSHIP_CACHE=$XDG_CACHE_HOME/starship
 
@@ -57,5 +65,3 @@ case `uname` in
     export SHELL_SESSIONS_DISABLE=1
   ;;
 esac
-
-
