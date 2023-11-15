@@ -1,10 +1,8 @@
 export HISTFILE=$XDG_STATE_HOME/zsh/history
 export LESSHISTFILE=$XDG_STATE_HOME/lesshst
 
-if [ $(uname -s)="Darwin" ]; then
-  source $ZPLUG_HOME/init.zsh
-fi
-
+# Setup Zplug and plugins
+source $ZPLUG_INIT
 zplug "agkozak/zsh-z"
 zplug "marlonrichert/zsh-autocomplete"
 zplug "zsh-users/zsh-completions"

@@ -22,6 +22,8 @@ function mkt() {
 #  NeoVim  #
 ############
 alias v="nvim"
+alias vi="nvim"
+alias vim="nvim"
 alias vd="nvim ."
 
 #########
@@ -38,8 +40,6 @@ alias -s yml=code
 alias -s js=code
 alias -s ts=code
 
-case `uname` in
-  Darwin)
-    source $XDG_CONFIG_HOME/homebrew/homebrew.zsh
-  ;;
-esac
+if [[ "$OSTYPE" == darwin* ]]; then
+  source $XDG_CONFIG_HOME/homebrew/homebrew.zsh
+fi

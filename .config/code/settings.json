@@ -12,5 +12,6 @@
   "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.iconTheme": "catppuccin-mocha",
   "editor.fontSize": 8,
-  "git.ignoreRebaseWarning": true
+  "git.ignoreRebaseWarning": true,
+  "circleci.hostUrl": ""
 }

@@ -24,6 +24,7 @@ Commands installed on all devices
 - `yu` - Updates dotfiles using YADM
 - `gcm` - Checkout main branch in current folder
 - `gcd` - Checkout develop branch in current folder
+
 ### MacOS
 
 Commands only installed on MacOS
@@ -38,7 +39,7 @@ The setup can be customised by adding any parts of the following folder structur
 
 ```
     alias.zsh           - Extra aliases
-    Brewfile            - Addition brew files to install on Mac OS
+    Brewfile            - Additional brew files to install on Mac OS
     bootstrap
         fileToProcess   - Files to process to customise the system, run in alphabetical order
 ```
