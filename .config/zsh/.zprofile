@@ -25,10 +25,6 @@ export PAGER="${PAGER:-bat}"
 #
 export LANG="${LANG:-en_US.UTF-8}"
 
-# Z auto-completion configuration
-export ZSHZ_DATA=$XDG_STATE_HOME/z/z
-export ZSHZ_TILDE=1
-
 # OS specific environment variables
 if [[ "$OSTYPE" == darwin* ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"         # Setup homebrew shell integrations

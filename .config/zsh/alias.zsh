@@ -18,6 +18,14 @@ function mkt() {
   fi
 }
 
+#############
+#  Colorls  #
+#############
+alias lc="colorls --sd"
+alias ll="colorls --sd -ll"
+alias la="colorls --sd -a"
+alias lr="colorls --sd --report"
+
 ############
 #  NeoVim  #
 ############

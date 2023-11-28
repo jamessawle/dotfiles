@@ -1,5 +1,12 @@
 #!/bin/sh
 
+install_gem () {
+  if ! gem list --local | grep -q $1; then
+  echo "Installing $1"
+  sudo gem install $1
+fi
+}
+
 # Install applications using OS specific package manager
 # Future bootstrapping steps can assume that these
 # applications are installed
@@ -15,6 +22,9 @@ if [ $system_type = "Darwin" ]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
 
+  echo "Installing homebrew packages"
   createBrewfile
   bbi
 fi
+
+install_gem colorls
