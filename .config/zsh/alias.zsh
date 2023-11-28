@@ -22,7 +22,8 @@ function mkt() {
 #  Colorls  #
 #############
 alias lc="colorls --sd"
-alias ll="colorls --sd -ll"
+alias ll="colorls --sd -l"
+alias lla="colorls --sd -la"
 alias la="colorls --sd -a"
 alias lr="colorls --sd --report"
 

@@ -7,11 +7,13 @@ echo "Setting OS specific configuration"
 system_type=$(uname -s)
 
 if [ $system_type = "Darwin" ]; then
-  # REMEMBER TO CHANGE IF THE FOLLOWING CONFIGURATION IS CHANGED IN ANYWAY
+  # REMEMBER TO CHANGE VERSION IF THE CONFIGURATION IS CHANGED IN ANYWAY
+  group=sawle.setup
+  property=ConfigVersion
   configVersion=1
 
   # This stops the Dock and Finder being killed if nothing has been changed
-  if [[ $(defaults read sawle.setup ConfigVersion) -ne configVersion ]]; then
+  if [[ $(defaults read $group $property) -ne configVersion ]]; then
     echo MacOS configuration is outdated, updating to version $configVersion
 
     # Configure dock
@@ -31,6 +33,6 @@ if [ $system_type = "Darwin" ]; then
     defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$XDG_CONFIG_HOME/iterm2"
     defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
 
-    defaults write sawle.setup ConfigVersion $configVersion
+    defaults write $group $property -int $configVersion
   fi
 fi
