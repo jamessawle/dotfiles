@@ -8,10 +8,11 @@
   "editor.inlineSuggest.enabled": true,
   "editor.largeFileOptimizations": true,
   "security.workspace.trust.banner": "always",
-  "window.zoomLevel": 4,
   "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.iconTheme": "catppuccin-mocha",
   "editor.fontSize": 8,
   "git.ignoreRebaseWarning": true,
-  "circleci.hostUrl": ""
+  "circleci.hostUrl": "",
+  "window.zoomLevel": 4,
+  "diffEditor.ignoreTrimWhitespace": false
 }

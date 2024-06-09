@@ -2,9 +2,9 @@
 
 install_gem () {
   if ! gem list --local | grep -q $1; then
-  echo "Installing $1"
-  sudo gem install $1
-fi
+    echo "Installing $1"
+    sudo gem install $1
+  fi
 }
 
 # Install applications using OS specific package manager
@@ -23,7 +23,6 @@ if [ $system_type = "Darwin" ]; then
   fi
 
   echo "Installing homebrew packages"
-  createBrewfile
   bbi
 fi
 
